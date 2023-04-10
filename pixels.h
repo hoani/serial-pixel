@@ -8,7 +8,7 @@
 
 #include "display.h"
 
-class Pixels : Display
+class Pixels : public Display
 {
 public:
     Pixels(int pin) : _pin(pin), _n(0) {}

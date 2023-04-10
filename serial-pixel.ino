@@ -1,20 +1,21 @@
 
 #include "pixels.h"
+#include "comms.h"
 
 #define PIXEL_PIN 5
-
-
 
 void setup()
 {
   Pixels pixels(PIXEL_PIN);
-  pixels.setup(24);
-  for (int i = 0; i < 24; i++)
+
+  Serial.begin(115200);
+
+  Comms c(&pixels);
+  while (true)
   {
-    pixels.setHSV(i, 10*i, 100, 100);
+    delay(10);
+    c.update();
   }
-  pixels.show();
- 
 }
 
 void loop()
