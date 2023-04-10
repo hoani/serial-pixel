@@ -58,8 +58,6 @@ void Comms::_doInit()
     // Short init command, no config.
     if (_delta() < 2)
     {
-        Serial.print("initializing ");
-        Serial.println(n);
         _d->setup(n);
         return;
     }
