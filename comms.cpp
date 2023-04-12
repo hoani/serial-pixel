@@ -10,7 +10,6 @@ void Comms::update()
         {
             return;
         }
-
         if (b == '\n')
         {
             _processPacket();
@@ -119,7 +118,7 @@ void Comms::_appendByte(uint8_t b)
 {
     _b[_last] = b;
     _last++;
-    if (_last > SERIAL_BUFFER_SIZE)
+    if (_last == SERIAL_BUFFER_SIZE)
     {
         _last = 0;
     }
@@ -145,7 +144,7 @@ uint8_t Comms::_nextByte()
 
     uint8_t b = _b[_index];
     _index++;
-    if (_index > SERIAL_BUFFER_SIZE)
+    if (_index == SERIAL_BUFFER_SIZE)
     {
         _index = 0;
     }
