@@ -13,7 +13,6 @@ void setup()
   Comms c(&pixels);
   while (true)
   {
-    delay(10);
     c.update();
   }
 }
